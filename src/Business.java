@@ -12,43 +12,50 @@ public abstract class Business {
 		busNum = businessNum;
 		totalRec = totalReceipt;
 	}
+	public Business(int businessNum, double totalReceipt, double taxesDue){
+		busNum = businessNum;
+		totalRec = totalReceipt;
+		taxDue = taxesDue;
+	}
 	
 	public abstract String print();
+}
+
+class Restaurants extends Business {
+
+	public Restaurants(int businessNum, double totalReceipt, double taxesDue) {
+		super(businessNum, taxesDue);
+	}
+
+	public String print() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
-	public class Restaurants extends Business {
+}
 
-		public Restaurants(int businessNum, double totalReceipt, double taxesDue) {
-			super(businessNum, taxesDue);
-		}
+class Hotels extends Business {
 
-		public String print() {
-			// TODO Auto-generated method stub
-			return null;
-		}
-		
+	public Hotels(int businessNum, double totalReceipt, double taxesDue) {
+		super(businessNum, totalReceipt);
 	}
-	public class Hotels extends Business {
 
-		public Hotels(int businessNum, double totalReceipt, double taxesDue) {
-			super(businessNum, totalReceipt);
-		}
-
-		public String print() {
-			// TODO Auto-generated method stub
-			return null;
-		}
-		
+	public String print() {
+		// TODO Auto-generated method stub
+		return null;
 	}
-	public class ConvStore extends Business {
+	
+}
 
-		public ConvStore(int businessNum, double totalReceipt, double taxesDue) {
-			super(businessNum, totalReceipt);
-		}
+class ConvStore extends Business {
 
-		public String print() {
-			// TODO Auto-generated method stub
-			return null;
-		}
-		
+	public ConvStore(int businessNum, double totalReceipt, double taxesDue) {
+		super(businessNum, totalReceipt);
 	}
+
+	public String print() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 }
