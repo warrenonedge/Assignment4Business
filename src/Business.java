@@ -12,50 +12,70 @@ public abstract class Business {
 		busNum = businessNum;
 		totalRec = totalReceipt;
 	}
-	public Business(int businessNum, double totalReceipt, double taxesDue){
-		busNum = businessNum;
-		totalRec = totalReceipt;
-		taxDue = taxesDue;
-	}
 	
-	public abstract String print();
+	public abstract void print();
 }
 
 class Restaurants extends Business {
-
-	public Restaurants(int businessNum, double totalReceipt, double taxesDue) {
-		super(businessNum, taxesDue);
+	public double foodReceipt;
+	public double drinkReceipt;
+		
+	public Restaurants(int businessNum) {
+		super(businessNum);
+	}
+	
+	public void setReceipt(double foodReceipt, double drinkReceipt){
+		this.totalRec += foodReceipt+drinkReceipt;
+		this.foodReceipt += foodReceipt;
+		this.drinkReceipt += drinkReceipt;
+		if (drinkReceipt>foodReceipt){
+			this.taxDue += (this.totalRec*0.03);
+		}
+		this.taxDue += drinkReceipt*0.08;
 	}
 
-	public String print() {
-		// TODO Auto-generated method stub
-		return null;
+	public void print() {
+		System.out.println("Restaurant "+ String.valueOf(this.busNum)+" Taxes Due: "+String.valueOf(this.taxDue));
 	}
 	
 }
 
 class Hotels extends Business {
 
-	public Hotels(int businessNum, double totalReceipt, double taxesDue) {
-		super(businessNum, totalReceipt);
+	public Hotels(int businessNum) {
+		super(businessNum);
 	}
-
-	public String print() {
-		// TODO Auto-generated method stub
-		return null;
+	
+	public void setReceipt(double totalReceipt, int occ){
+		this.totalRec += totalReceipt;
+		if (occ>90){
+			this.taxDue += totalReceipt*0.02;
+		}
+		this.taxDue += totalReceipt*0.06;
+	}
+	
+	public void print() {
+		System.out.println("Hotel "+ String.valueOf(this.busNum)+" Taxes Due: "+String.valueOf(this.taxDue));
 	}
 	
 }
 
 class ConvStore extends Business {
-
-	public ConvStore(int businessNum, double totalReceipt, double taxesDue) {
-		super(businessNum, totalReceipt);
+	public double newsReceipt;
+	public double otherReceipt;
+	
+	public ConvStore(int businessNum) {
+		super(businessNum);
+	}
+	
+	public void setReceipt(double newsReceipt, double otherReceipt){
+		this.newsReceipt += newsReceipt;
+		this.otherReceipt += otherReceipt;
+		this.taxDue += otherReceipt * 0.07;
 	}
 
-	public String print() {
-		// TODO Auto-generated method stub
-		return null;
+	public void print() {
+		System.out.println("Convience Store "+ String.valueOf(this.busNum)+" Taxes Due: "+String.valueOf(this.taxDue));
 	}
 	
 }
