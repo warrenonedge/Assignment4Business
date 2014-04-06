@@ -16,6 +16,7 @@ public class test {
 		Ritz.setReceipt(25000, 98);
 		Ritz.print();
 		Ritz.setReceipt(21500, 88);
+		Ritz.print();
 		Hotels NotelHotel = new Hotels(4);
 		NotelHotel.setReceipt(5500, 93);
 		NotelHotel.print();
