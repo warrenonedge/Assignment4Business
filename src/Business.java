@@ -38,7 +38,8 @@ class Restaurants extends Business {
 	}
 
 	public void print() {
-		System.out.println("Restaurant "+ String.valueOf(this.busNum)+" Week "+String.valueOf(this.week)+":\n\tTotal Receipts: $"+String.valueOf(this.totalRec)+"\n\t\tFood Receipts: $"+String.valueOf(this.foodReceipt)+"\n\t\tDrink Receipts: $"+String.valueOf(this.drinkReceipt)+"\n\tTaxes Due: $"+String.valueOf(this.taxDue)+"\n");
+		System.out.println(String.format("Resaurant %d Week %d:\n\tTotal Receipts: $%.2f\n\t\tFood Receipts: $%.2f\n\t\tDrink Receipts: $%.2f\n\tTaxes Due: $%.2f\n",this.busNum,this.week,this.totalRec,this.foodReceipt,this.drinkReceipt,this.taxDue));
+
 	}
 	
 }
@@ -63,7 +64,7 @@ class Hotels extends Business {
 	}
 	
 	public void print() {
-		System.out.println("Hotel "+ String.valueOf(this.busNum)+" Week "+String.valueOf(this.week)+":\n\tTotal Receipts: $"+String.valueOf(this.totalRec)+"\n\tOccupancy: "+String.valueOf(this.occ)+"\n\tTaxes Due: $"+String.valueOf(this.taxDue)+"\n");
+		System.out.println(String.format("Hotel %d Week %d:\n\tTotal Receipts: $%.2f\n\t\tOccupancy: %d%%\n\tTaxes Due: $%.2f\n",this.busNum,this.week,this.totalRec,this.occ,this.taxDue));
 	}
 	
 }
@@ -86,7 +87,7 @@ class ConvStore extends Business {
 	}
 
 	public void print() {
-		System.out.println("Convience Store "+ String.valueOf(this.busNum)+" Week "+String.valueOf(this.week)+":\n\tTotal Receipts: $"+String.valueOf(this.totalRec)+"\n\t\tNewspaper Receipts: $"+String.valueOf(this.newsReceipt)+"\n\t\tOther Receipts: $"+String.valueOf(this.otherReceipt)+"\n\tTaxes Due: $"+String.valueOf(this.taxDue)+"\n");
+		System.out.println(String.format("Convience Store %d Week %d:\n\tTotal Receipts: $%.2f\n\t\tNewspaper Receipts: $%.2f\n\t\tOther Receipts: $%.2f\n\tTaxes Due: $%.2f\n",this.busNum,this.week,this.totalRec,this.newsReceipt,this.otherReceipt,this.taxDue));
 	}
 	
 }
